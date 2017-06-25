@@ -48,6 +48,11 @@ $app->singleton(
     App\Console\Kernel::class
 );
 
+$app->singleton(
+    App\Repositories\Contracts\SiteRepository::class,
+    App\Repositories\SiteRepository::class
+);
+
 /*
 |--------------------------------------------------------------------------
 | Register Middleware
