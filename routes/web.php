@@ -11,6 +11,17 @@
 |
 */
 
+// index
 $app->get('/', function () use ($app) {
-    return $app->version();
+    return $app->getRoutes();
+});
+
+$app->group(['middleware' => 'services.site'], function () use ($app) {
+    $app->get('{siteId}', function ($siteId) {
+        return 'base-page';
+    });
+
+    $app->get('/{siteId}/epg', function () {
+        return '';
+    });
 });
