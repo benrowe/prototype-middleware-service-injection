@@ -34,18 +34,19 @@ class SiteRepository implements Contracts\SiteRepository
         $config = ['providers' => []];
         switch ($siteId) {
             case 11:
+                $config['providers'][] = 'Custom\AdvancedEpgProvider';
+//                $config['providers'][] = 'Custom\SpecialSomethingProvider';
+                break;
+            /*case 12:
                 $config['providers'][] = 'AdvancedEpgProvider';
                 $config['providers'][] = 'SpecialSomethingProvider';
-                break;
-            case 12:
-                $config['providers'][] = 'AdvancedEpgProvider';
-                $config['providers'][] = 'SpecialSomethingProvider';
-                break;
+                break;*/
             default:
                 break;
         }
 
         $site->setConfig($config);
+        $site->setId($siteId);
 
         return $site;
     }

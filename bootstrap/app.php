@@ -23,10 +23,6 @@ $app = new Laravel\Lumen\Application(
     realpath(__DIR__.'/../')
 );
 
-// $app->withFacades();
-
-// $app->withEloquent();
-
 /*
 |--------------------------------------------------------------------------
 | Register Container Bindings
@@ -64,10 +60,6 @@ $app->singleton(
 |
 */
 
-// $app->middleware([
-//    App\Http\Middleware\ExampleMiddleware::class
-// ]);
-
 $app->routeMiddleware([
     'services.site' => App\Http\Middleware\SiteServiceInjection::class,
 ]);
@@ -82,10 +74,7 @@ $app->routeMiddleware([
 | totally optional, so you are not required to uncomment this line.
 |
 */
-
-// $app->register(App\Providers\AppServiceProvider::class);
-// $app->register(App\Providers\AuthServiceProvider::class);
-// $app->register(App\Providers\EventServiceProvider::class);
+$app->register(\App\Providers\EpgServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------

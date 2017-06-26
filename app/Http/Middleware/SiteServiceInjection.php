@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Contracts\ConstrainedBySiteId;
 use App\Entity\Site;
 use Closure;
 use App\Repositories\Contracts\SiteRepository;

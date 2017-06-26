@@ -12,6 +12,8 @@
 */
 
 // index
+use App\Services\Core\Contracts\Epg;
+
 $app->get('/', function () use ($app) {
     return $app->getRoutes();
 });
@@ -21,7 +23,7 @@ $app->group(['middleware' => 'services.site'], function () use ($app) {
         return 'base-page';
     });
 
-    $app->get('/{siteId}/epg', function () {
-        return '';
+    $app->get('/{siteId}/epg', function (Epg $epg) {
+        return $epg->getData();
     });
 });
