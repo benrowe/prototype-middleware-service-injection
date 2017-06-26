@@ -37,10 +37,13 @@ class SiteServiceInjection
     {
         $site = $this->getSite($request);
         if ($site) {
-            foreach ($site->getConfigValue('providers', []) as $serviceName => $object) {
-                /*app($serviceName)->bind(function () use ($object) {
-                    return new $object;
-                });*/
+            foreach ($site->getConfigValue('providers', []) as $object) {
+                $provider = 'App\\Providers\\'.$object;
+                $provider = new $provider(app());
+                if ($provider instanceof ConstrainedBySiteId) {
+                    $provider->setSiteId($site->getId());
+                }
+                app()->register($provider);
             }
         } else {
             // unable to load site!
