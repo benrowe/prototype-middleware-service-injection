@@ -6,6 +6,7 @@ use App\Entity\Site;
 
 /**
  * Class SiteRepository
+ * This would contain calls to the db...
  *
  * @package App\Repositories
  */

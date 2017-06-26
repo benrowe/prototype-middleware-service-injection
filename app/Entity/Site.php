@@ -11,6 +11,8 @@ class Site
 
     private $id = 0;
 
+    private $name;
+
     /**
      * @return array
      */
@@ -54,5 +56,21 @@ class Site
     public function setId(int $id)
     {
         $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
     }
 }
