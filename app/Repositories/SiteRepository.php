@@ -32,22 +32,20 @@ class SiteRepository implements Contracts\SiteRepository
      */
     private function buildSiteConfig(int $siteId, Site $site): Site
     {
+        $site->setName('default site '.$siteId);
+        $site->setId($siteId);
+
         $config = ['providers' => []];
         switch ($siteId) {
+            case 10:
             case 11:
                 $config['providers'][] = 'Custom\AdvancedEpgProvider';
-//                $config['providers'][] = 'Custom\SpecialSomethingProvider';
                 break;
-            /*case 12:
-                $config['providers'][] = 'AdvancedEpgProvider';
-                $config['providers'][] = 'SpecialSomethingProvider';
-                break;*/
             default:
                 break;
         }
 
         $site->setConfig($config);
-        $site->setId($siteId);
 
         return $site;
     }

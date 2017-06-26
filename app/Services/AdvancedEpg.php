@@ -15,9 +15,10 @@ class AdvancedEpg implements Epg, ConstrainedBySiteId
      */
     public function getData(): array
     {
-        return [
-            'custom' => $this->siteId
-        ];
+        $data = app('core.epg')->getData();
+        $data['custom'] = $this->siteId;
+
+        return $data;
     }
 
     /**
